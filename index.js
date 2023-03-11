@@ -20,15 +20,6 @@ app.listen(PORT,  () => {
 });
 
   
-
-// middleware
-app.use(express.json());
-app.use(authRouter);
-app.use(adminRouter);
-app.use(productRouter);
-app.use(userRouter);
-
-
 // Connections
 mongoose
   .connect(DB)
@@ -38,3 +29,13 @@ mongoose
   .catch((e) => {
     console.log(e);
   });
+
+  
+// middleware
+app.use(express.json());
+app.use(authRouter);
+app.use(adminRouter);
+app.use(productRouter);
+app.use(userRouter);
+
+
