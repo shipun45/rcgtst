@@ -13,6 +13,12 @@ const userRouter = require("./routes/user");
 const PORT = process.env.PORT || 3000;
 const app = express();
 
+
+
+app.listen(PORT,  () => {
+  console.log(`connected at port ${PORT}`);
+});
+
   
 
 // middleware
@@ -21,6 +27,7 @@ app.use(authRouter);
 app.use(adminRouter);
 app.use(productRouter);
 app.use(userRouter);
+
 
 // Connections
 mongoose
@@ -31,7 +38,3 @@ mongoose
   .catch((e) => {
     console.log(e);
   });
-
-app.listen(PORT,  () => {
-  console.log(`connected at port ${PORT}`);
-});
