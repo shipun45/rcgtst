@@ -7,21 +7,19 @@ const User = require("../models/user");
 
 // order product
 planRouter.post("/api/planorder", auth, async (req, res) => {
-    try {
-    //   const { _id, price, number } = req.body;
-    const  data = req.body;
-      let plans = [];
-  
-  
-      let user = await User.findById(req.user);
-      user.transaction = [];
-      user = await user.save();
-  
-   
-    //   plans = await data.save();
-      res.json(user);
-    } catch (e) {
-      res.status(500).json({ error: e.message });
+  try {
+    const { id, price, number } = req.body;
+    const transactionPlan = await Plans.findById(id);
+    let user = await User.findById(req.user);
+
+    if (user.transaction.length == 0) {
+      user.transaction.push({ transactionPlan });
     }
-  });
-  module.exports = planRouter;
+    user = await user.save();
+
+    res.json(user);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+module.exports = planRouter;
