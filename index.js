@@ -24,6 +24,7 @@ app.listen(PORT,  () => {
 mongoose
   .connect(DB)
   .then(() => {
+    mongoose.set('strictQuery', true);
     console.log("Connection Successful");
   })
   .catch((e) => {
