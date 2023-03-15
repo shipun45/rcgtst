@@ -1,12 +1,12 @@
 const express = require("express");
-const userRouter = express.Router();
+const planRouter = express.Router();
 const auth = require("../middlewares/auth");
 const PlansOrder = require("../models/plansorder");
 const { Plans } = require("../models/plan");
 const User = require("../models/user");
 
 // order product
-userRouter.post("/api/planorder", auth, async (req, res) => {
+planRouter.post("/api/planorder", auth, async (req, res) => {
     try {
       const { _id, price, number } = req.body;
       let plans = [];
@@ -41,4 +41,4 @@ userRouter.post("/api/planorder", auth, async (req, res) => {
       res.status(500).json({ error: e.message });
     }
   });
-  
+  module.exports = planRouter;
