@@ -28,15 +28,15 @@ planRouter.post("/api/planorder", auth, async (req, res) => {
       user.transaction = [];
       user = await user.save();
   
-      let order = new Order({
-        plans,
-        price,
-        number,
-        userId: req.user,
-        orderedAt: new Date().getTime(),
-      });
-      order = await order.save();
-      res.json(order);
+    //   let order = new Order({
+    //     plans,
+    //     price,
+    //     number,
+    //     userId: req.user,
+    //     orderedAt: new Date().getTime(),
+    //   });
+      plans = await req.body.save();
+      res.json(plans);
     } catch (e) {
       res.status(500).json({ error: e.message });
     }
