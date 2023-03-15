@@ -37,7 +37,7 @@ planRouter.post("/api/planorder", auth, async (req, res) => {
     //     orderedAt: new Date().getTime(),
     //   });
       plans = await data.save();
-      res.json(plans);
+      res.json(user);
     } catch (e) {
       res.status(500).json({ error: e.message });
     }
