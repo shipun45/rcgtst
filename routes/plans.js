@@ -8,7 +8,7 @@ const User = require("../models/user");
 // order product
 planRouter.post("/api/planorder", auth, async (req, res) => {
     try {
-      const { _id, price, number } = req.body;
+    //   const { _id, price, number } = req.body;
     const  data = req.body;
       let plans = [];
   
