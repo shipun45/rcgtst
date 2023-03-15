@@ -19,12 +19,12 @@ app.listen(PORT,  () => {
   console.log(`connected at port ${PORT}`);
 });
 
-  
+mongoose.set('strictQuery', false);
 // Connections
 mongoose
   .connect(DB)
   .then(() => {
-    mongoose.set('strictQuery', true);
+    
     console.log("Connection Successful");
   })
   .catch((e) => {
