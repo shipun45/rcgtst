@@ -9,6 +9,7 @@ const User = require("../models/user");
 planRouter.post("/api/planorder", auth, async (req, res) => {
     try {
       const { _id, price, number } = req.body;
+    const  data = req.body;
       let plans = [];
   
     //   for (let i = 0; i < cart.length; i++) {
@@ -35,7 +36,7 @@ planRouter.post("/api/planorder", auth, async (req, res) => {
     //     userId: req.user,
     //     orderedAt: new Date().getTime(),
     //   });
-      plans = await req.body.save();
+      plans = await data.save();
       res.json(plans);
     } catch (e) {
       res.status(500).json({ error: e.message });
