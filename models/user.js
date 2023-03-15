@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const { productSchema } = require("./product");
+const { planSchema }= require("./plan");
 
 const userSchema = mongoose.Schema({
   name: {
@@ -32,6 +33,11 @@ const userSchema = mongoose.Schema({
     type: String,
     default: "user",
   },
+  transaction:[
+    {
+      plan: planSchema,
+    },
+  ],
   cart: [
     {
       product: productSchema,

@@ -5,6 +5,7 @@ const Order = require("../models/order");
 const { Product } = require("../models/product");
 const User = require("../models/user");
 
+// Product add to cart
 userRouter.post("/api/add-to-cart", auth, async (req, res) => {
   try {
     const { id } = req.body;
@@ -36,6 +37,7 @@ userRouter.post("/api/add-to-cart", auth, async (req, res) => {
     res.status(500).json({ error: e.message });
   }
 });
+
 
 userRouter.delete("/api/remove-from-cart/:id", auth, async (req, res) => {
   try {
@@ -117,5 +119,7 @@ userRouter.get("/api/orders/me", auth, async (req, res) => {
     res.status(500).json({ error: e.message });
   }
 });
+
+
 
 module.exports = userRouter;

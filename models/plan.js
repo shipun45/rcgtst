@@ -2,24 +2,34 @@ const mongoose = require("mongoose");
 
 
 const planSchema = mongoose.Schema({
-  name: {
+  type: {
     type: String,
     required: true,
     trim: true,
   },
-  description: {
+  discount: {
     type: String,
     required: true,
     trim: true,
   },
-  images: [
-    {
-      type: String,
-      required: true,
-    },
-  ],
-  quantity: {
+  offer: {
     type: Number,
+    required: true,
+   
+  },
+  validity: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  benifits: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+ 
+  data: {
+    type: String,
     required: true,
   },
   price: {
@@ -30,7 +40,7 @@ const planSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  ratings: [ratingSchema],
+  
 });
 
 const Plans = mongoose.model("Plans", planSchema);
