@@ -5,6 +5,16 @@ const PlansOrder = require("../models/plansorder");
 const { Plans } = require("../models/plan");
 const User = require("../models/user");
 
+planRouter.get("/api/plan/",  async (req, res) => {
+  try {
+    const plans = await Plans.find({ category: req.query.category });
+    res.json(plans);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+
 // order product
 planRouter.post("/api/planorder", auth, async (req, res) => {
   try {
