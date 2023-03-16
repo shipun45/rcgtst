@@ -40,7 +40,7 @@ const userSchema = mongoose.Schema({
       status: String,
       category: String,
       data: String,
-      mobilenumber: String,
+      mobilenumber: Number,
     },
   ],
   cart: [
