@@ -23,11 +23,12 @@ planRouter.post("/api/planorder", auth, async (req, res) => {
     let user = await User.findById(req.user);
 
     if (user.transaction.length == 0) {
-      user.transaction.push({ transactionPlan, mobilenumber });
+      user.transaction.push( req.body)
+      // user.transaction.push({ transactionPlan, mobilenumber });
     }
     user = await user.save();
 
-    res.json(user);
+    res.json(req.body);
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
