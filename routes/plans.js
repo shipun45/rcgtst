@@ -24,7 +24,7 @@ planRouter.post("/api/planorder", auth, async (req, res) => {
 
   
       // user.transaction.push( req.body)
-      user.transaction.push({ transactionPlan,totalPrice, mobilenumber });
+      user.transaction.push({ totalPrice, mobilenumber });
     
     user = await user.save();
 
