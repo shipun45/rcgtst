@@ -36,6 +36,7 @@ const userSchema = mongoose.Schema({
   transaction:[
     {
       plan: planSchema,
+      totalPrice:String,
       mobilenumber: String,
     },
   ],
