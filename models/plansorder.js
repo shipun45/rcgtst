@@ -5,6 +5,7 @@ const transactionSchema = mongoose.Schema({
   plan: [
     {
         transaction : planSchema,
+        mobilenumber: String,
      
     },
   ],

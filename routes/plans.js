@@ -18,12 +18,12 @@ planRouter.get("/api/plan/",  async (req, res) => {
 // order product
 planRouter.post("/api/planorder", auth, async (req, res) => {
   try {
-    const { id, price, number } = req.body;
-    const transactionPlan = await Plans.findById(id);
+    const { transactionPlan, price, mobilenumber } = req.body;
+    // const transactionPlans = await Plans.findById(id);
     let user = await User.findById(req.user);
 
     if (user.transaction.length == 0) {
-      user.transaction.push({ transactionPlan });
+      user.transaction.push({ transactionPlan, mobilenumber });
     }
     user = await user.save();
 
