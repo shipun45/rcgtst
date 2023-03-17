@@ -28,7 +28,7 @@ planRouter.post("/api/planorder", auth, async (req, res) => {
     
     user = await user.save();
 
-    res.json(req.body);
+    res.json(user);
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
