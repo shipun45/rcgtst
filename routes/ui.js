@@ -5,7 +5,7 @@ const Ui = require('../models/ui');
 
 uiRouter.get("/ui", async function (req, res) {
     var ui = await Ui.find();
-    res.status(200).json({"status": false,});
+    res.status(200).json({"status": false, "data": false});
 });
 
 
