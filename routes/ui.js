@@ -19,7 +19,7 @@ uiRouter.post("/ui", async function (req, res) {
     });
     await newUi.save();
     const response = {  message: " ui created" }
-    res.status(200).json({"status": false,});
+    res.status(200).json({"status": false,"data": false});
 });
 
 
