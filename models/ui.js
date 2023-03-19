@@ -7,7 +7,7 @@ const uiSchema = mongoose.Schema({
     },
     isready:{
         type: String,
-        default: no,
+        default: "no",
     },
  
 });
