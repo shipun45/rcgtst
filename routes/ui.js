@@ -5,7 +5,7 @@ const Ui = require('../models/ui');
 
 uiRouter.get("/ui", async function (req, res) {
     var ui = await Ui.find();
-    res.json(ui);
+    res.status(200).json({"status": false,});
 });
 
 
@@ -18,8 +18,8 @@ uiRouter.post("/ui", async function (req, res) {
 
     });
     await newUi.save();
-    const response = { message: " ui created" }
-    res.json(response);
+    const response = {  message: " ui created" }
+    res.status(200).json({"status": false,});
 });
 
 
