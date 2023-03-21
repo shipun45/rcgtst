@@ -18,7 +18,7 @@ const userSchema = mongoose.Schema({
           /^(0|91)?[6-9][0-9]{9}$/;
         return value.match(re);
       },
-      message: "Please enter a valid email address",
+      message: "Please enter a valid phone number",
     },
   },
   password: {
