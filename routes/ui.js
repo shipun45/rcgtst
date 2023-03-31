@@ -2,7 +2,7 @@ const express = require("express");
 const uiRouter = express.Router();
 const Ui = require('../models/ui');
 
-
+///Change it to true to show recharge option remotely from server
 uiRouter.get("/ui", async function (req, res) {
     var ui = await Ui.find();
     res.status(200).json({"status": false, "data": false,"isReady": "no"});
