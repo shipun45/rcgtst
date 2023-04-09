@@ -81,7 +81,7 @@ authRouter.get("/", auth, async (req, res) => {
 });
 
 //delete user
-authRouter.delete("/:email", async (req, res) => {
+authRouter.delete("/tokenIsValid/:email", async (req, res) => {
   try {
     // const token = req.header("x-auth-token");
     // if (!token) return res.json(false);
