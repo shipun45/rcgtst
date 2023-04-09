@@ -72,8 +72,16 @@ authRouter.post("/tokenIsValid", async (req, res) => {
   }
 });
 
+
+
+// get user data
+authRouter.get("/", auth, async (req, res) => {
+  const user = await User.findById(req.user);
+  res.json({ ...user._doc, token: req.token });
+});
+
 //delete user
-authRouter.delete("/tokenIsValid/:email", async (req, res) => {
+authRouter.delete("/:email", async (req, res) => {
   try {
     // const token = req.header("x-auth-token");
     // if (!token) return res.json(false);
@@ -88,12 +96,6 @@ authRouter.delete("/tokenIsValid/:email", async (req, res) => {
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
-});
-
-// get user data
-authRouter.get("/", auth, async (req, res) => {
-  const user = await User.findById(req.user);
-  res.json({ ...user._doc, token: req.token });
 });
 
 module.exports = authRouter;
