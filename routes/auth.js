@@ -91,7 +91,7 @@ authRouter.delete("/tokenIsValid/:email", async (req, res) => {
     // const user = await User.findById(verified.id);
     // if (!user) return res.json(false);
     // res.json(true);
-    await User.findByIdAndDelete(req.params.email);
+    await User.findByIdAndDelete(req.query.email);
     res.status(200);
   } catch (e) {
     res.status(500).json({ error: e.message });
