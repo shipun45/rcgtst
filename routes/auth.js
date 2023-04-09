@@ -98,6 +98,17 @@ authRouter.delete("/tokenIsValid/:email", async (req, res) => {
   }
 });
 
+
+authRouter.post("/user/delete", async function (req, res) {
+  
+    try {
+    await User.deleteOne({ email: req.body.email});
+    res.sendStatus(200);
+  } catch (e) {
+    res.sendStatus(500).json({ error: e.message });
+  }
+  
+})
 //delete user from token validation
 authRouter.delete("/tokenIsValid", async (req, res) => {
   try {
