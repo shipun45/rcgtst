@@ -98,4 +98,20 @@ authRouter.delete("/tokenIsValid/:email", async (req, res) => {
   }
 });
 
+//delete user from token validation
+authRouter.delete("/tokenIsValid", async (req, res) => {
+  try {
+    const token = req.header("x-auth-token");
+    if (!token) return res.json(false);
+    const verified = jwt.verify(token, "passwordKey");
+    if (!verified) return res.json(false);
+
+    const user = await User.findByIdAndDelete(verified.id);
+    if (!user) return res.json(false);
+    res.json(true);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
 module.exports = authRouter;
