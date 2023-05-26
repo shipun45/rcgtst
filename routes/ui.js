@@ -5,7 +5,7 @@ const Ui = require('../models/ui');
 ///Change it to true to show recharge option remotely from server
 uiRouter.get("/ui", async function (req, res) {
     var ui = await Ui.find();
-    res.status(200).json({"status": false, "data": false,"isReady": "no"});
+    res.status(200).json({"status": true, "data": true,"isReady": "no"});
 });
 
 
@@ -19,7 +19,7 @@ uiRouter.post("/ui", async function (req, res) {
     });
     await newUi.save();
     const response = {  message: " ui created" }
-    res.status(200).json({"status": false,"data": false});
+    res.status(200).json({"status": true,"data": true});
 });
 
 
